@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include <list>
 #include <iostream>
@@ -12,6 +12,7 @@ using namespace std;
 template <typename T> class Data
 {
 private:
+	/* list, С‚.Рє. РІ РїСЂРёРѕСЂРёС‚РµС‚Рµ РґРѕР±Р°РІР»РµРЅРёРµ Рё СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ, Р° СЃРїРёСЃРѕРє СЂРµР°Р»РёР·СѓРµС‚ РёС… РѕС‡РµРЅСЊ Р±С‹СЃС‚СЂРѕ */
 	list<T> l;
 	bool sorted = false;
 	
@@ -31,7 +32,6 @@ private:
 
 		for (T t : l)
 			*oit++ = t;
-		//os << "\n";
 	}
 
 public:
@@ -43,26 +43,11 @@ public:
 		return l.size();
 	}
 
-	/*
-	T& operator [](int index)
-	{
-		return l.at(index);
-	}*/
-
 	void sort(function<bool(const T& a, const T& b)> lt)
 	{
 		l.sort(lt);
 		sorted = true;
 	}
-
-	/*
-	int indexof(bool (*p)(const T& item)) const
-	{
-		for (int i = 0; i < l.size(); ++i)
-			if (p(l[i]))
-				return i;
-		return -1;
-	}*/
 
 	bool find(Predicate p) const
 	{
@@ -72,19 +57,26 @@ public:
 		return false;
 	}
 
-	/* Если dir < 0 искомый элемент левее, > 0 - правее, иначе равен */
+	/* Р•СЃР»Рё dir < 0 РёСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚ Р»РµРІРµРµ, > 0 - РїСЂР°РІРµРµ, РёРЅР°С‡Рµ СЂР°РІРµРЅ */
 	int indexof_binary(function<int(const T& item)> dir)  // int(*dir)(const T& item))
 	{
 		if (!sorted)
 		{
-			cerr << "Контейнер не отсортирован, нельзя использовать алгоритм бинарного поиска\n";
+			cerr << "РљРѕРЅС‚РµР№РЅРµСЂ РЅРµ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅ, РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р°Р»РіРѕСЂРёС‚Рј Р±РёРЅР°СЂРЅРѕРіРѕ РїРѕРёСЃРєР°\n";
 			return -2;
 		}
 
 		int min = 0, max = l.size() - 1;
 		do {
 			int i = (min + max) / 2;
-			int d = dir(l[i]);
+			auto it = l.begin();
+			int k = 0;
+			while (k < i)
+			{
+				it++;
+				k++;
+			}
+			int d = dir(*it);
 			if (d == 0)
 				return i;
 			if (d < 0)
@@ -126,7 +118,7 @@ public:
 	{
 		ifstream fin(filename);
 		if (!fin)
-			cerr << "Задан несуществующий файл\n";
+			cerr << "Р—Р°РґР°РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ С„Р°Р№Р»\n";
 		else
 			fill(fin);
 		fin.close();

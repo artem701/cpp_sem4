@@ -1,4 +1,4 @@
-#include "product.h"
+ï»¿#include "product.h"
 
 istream & operator>>(istream & is, Product & p)
 {
@@ -41,23 +41,23 @@ ostream & operator<<(ostream & os, const Product & p)
 
 void Product::console_input()
 {
-	cout << "Íàèìåíîâàíèå òîâàðà: ";	cin.getline(name, 256);
-	cout << "ID òîâàðà: ";				cin >> productID;
-	cout << "ID ñêëàäà: ";				cin >> storageID;
-	cout << "Äàòà ïîñòóïëåíèÿ: ";		cin >> date;
-	cout << "Ñðîê õðàíåíèÿ: ";			cin >> shelf;
-	cout << "Êîëè÷åñòâî: ";				cin >> count;
-	cout << "Öåíà: ";					cin >> price;
+	cout << "ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð°: ";	cin.getline(name, 256);
+	cout << "ID Ñ‚Ð¾Ð²Ð°Ñ€Ð°: ";				cin >> productID;
+	cout << "ID ÑÐºÐ»Ð°Ð´Ð°: ";				cin >> storageID;
+	cout << "Ð”Ð°Ñ‚Ð° Ð¿Ð¾ÑÑ‚ÑƒÐ¿Ð»ÐµÐ½Ð¸Ñ: ";		cin >> date;
+	cout << "Ð¡Ñ€Ð¾Ðº Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ: ";			cin >> shelf;
+	cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾: ";				cin >> count;
+	cout << "Ð¦ÐµÐ½Ð°: ";					cin >> price;
 	getchar(); // \n 
 }
 
 void Product::console_output() const
 {
-	cout << "Íàèìåíîâàíèå òîâàðà: " << name << "\n";
-	cout << "ID òîâàðà: " << productID << "\n";
-	cout << "ID ñêëàäà: " << storageID << "\n";
-	cout << "Äàòà ïîñòóïëåíèÿ: " << date << "\n";
-	cout << "Ñðîê õðàíåíèÿ: " << shelf << "\n";
-	cout << "Êîëè÷åñòâî: " << count << "\n";
-	cout << "Öåíà: " << price << "\n\n";
+	cout << "ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð°: " << name << "\n";
+	cout << "ID Ñ‚Ð¾Ð²Ð°Ñ€Ð°: " << productID << "\n";
+	cout << "ID ÑÐºÐ»Ð°Ð´Ð°: " << storageID << "\n";
+	cout << "Ð”Ð°Ñ‚Ð° Ð¿Ð¾ÑÑ‚ÑƒÐ¿Ð»ÐµÐ½Ð¸Ñ: " << date << "\n";
+	cout << "Ð¡Ñ€Ð¾Ðº Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ: " << shelf << "\n";
+	cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾: " << count << "\n";
+	cout << "Ð¦ÐµÐ½Ð°: " << price << "\n\n";
 }

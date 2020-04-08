@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include <iostream>
 
@@ -16,7 +16,7 @@ public:
 
 	int monthdays() const;
 
-	/* -1 если данная дата меньше date, 1 если больше, иначе 0*/
+	/* -1 РµСЃР»Рё РґР°РЅРЅР°СЏ РґР°С‚Р° РјРµРЅСЊС€Рµ date, 1 РµСЃР»Рё Р±РѕР»СЊС€Рµ, РёРЅР°С‡Рµ 0*/
 	int compare(const Date& date) const;
 
 	Date operator +(int days) const;

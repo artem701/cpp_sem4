@@ -1,4 +1,4 @@
-
+п»ї
 #include <iostream>
 #include <windows.h>
 #include <functional>
@@ -9,16 +9,16 @@
 typedef Data<Product>::Predicate Predicate;
 typedef Data<Product> Products;
 
-/* Принимает объект типа Data<Product> и метод Data<Product>, который будет вызван с критериями, определенными пользователем.
- * Возвращает результат вызова функции */
+/* РџСЂРёРЅРёРјР°РµС‚ РѕР±СЉРµРєС‚ С‚РёРїР° Data<Product> Рё РјРµС‚РѕРґ Data<Product>, РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ РІС‹Р·РІР°РЅ СЃ РєСЂРёС‚РµСЂРёСЏРјРё, РѕРїСЂРµРґРµР»РµРЅРЅС‹РјРё РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј.
+ * Р’РѕР·РІСЂР°С‰Р°РµС‚ СЂРµР·СѓР»СЊС‚Р°С‚ РІС‹Р·РѕРІР° С„СѓРЅРєС†РёРё */
 template <typename ret_t> ret_t action_by_choice(Products& data, std::function<ret_t(Products&, Predicate)> f)
 {
-	cout << " Выберите критерий поиска:\n"
-		<< " \t1 - по номеру склада\n"
-		<< " \t2 - по коду товара\n"
-		<< " \t3 - по дате поступления\n"
-		<< " \t4 - проcроченные на момент " << Date::get_today() << "\n"
-		<< "\n \t0 - вернуться в меню\n\n> ";
+	cout << " Р’С‹Р±РµСЂРёС‚Рµ РєСЂРёС‚РµСЂРёР№ РїРѕРёСЃРєР°:\n"
+		<< " \t1 - РїРѕ РЅРѕРјРµСЂСѓ СЃРєР»Р°РґР°\n"
+		<< " \t2 - РїРѕ РєРѕРґСѓ С‚РѕРІР°СЂР°\n"
+		<< " \t3 - РїРѕ РґР°С‚Рµ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ\n"
+		<< " \t4 - РїСЂРѕcСЂРѕС‡РµРЅРЅС‹Рµ РЅР° РјРѕРјРµРЅС‚ " << Date::get_today() << "\n"
+		<< "\n \t0 - РІРµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ\n\n> ";
 
 	char line[256];
 	cin.getline(line, 256);
@@ -30,17 +30,17 @@ template <typename ret_t> ret_t action_by_choice(Products& data, std::function<r
 	switch (cmd)
 	{
 	case '1':
-		cout << " Введите номер склада: ";
+		cout << " Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЃРєР»Р°РґР°: ";
 		cin >> buffer; cin.getline(line, 256);
 		return f(data, [buffer](const Product& item) { return item.storageID == buffer; });
 		break;
 	case '2':
-		cout << " Введите код товара: ";
+		cout << " Р’РІРµРґРёС‚Рµ РєРѕРґ С‚РѕРІР°СЂР°: ";
 		cin >> buffer; cin.getline(line, 256);
 		return f(data, [buffer](const Product& item) { return item.productID == buffer; });
 		break;
 	case '3':
-		cout << " Введите дату поступления: ";
+		cout << " Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ: ";
 		cin >> date; cin.getline(line, 256);
 		return f(data, [date](const Product& item) { return item.date.compare(date) == 0; });
 		break;
@@ -48,7 +48,7 @@ template <typename ret_t> ret_t action_by_choice(Products& data, std::function<r
 		return f(data, [buffer](const Product& item) { return (item.date + item.shelf).compare(Date::get_today()) < 0; });
 		break;
 	default:
-		cout << " Нет такого критерия\n";
+		cout << " РќРµС‚ С‚Р°РєРѕРіРѕ РєСЂРёС‚РµСЂРёСЏ\n";
 	}
 
 	return ret_t();
@@ -61,17 +61,17 @@ void menu()
 	while (true)
 	{
 		cout
-			<< " 1 - добавить элемент\n"
-			<< " 2 - заполнить контейнер из файла\n"
-			<< " 3 - напечатать содержимое контейнера\n"
-			<< " 4 - сохранить контейнер в файл\n"
-			<< " 5 - напечатать элементы по критерию\n"
-			<< " 6 - вывести элементы по критерию в файл\n"
-			<< " 7 - удалить элементы по критерию\n"
-				/* подразумевается сортировка в приоритете */
-				/* номер склада -> номер товара */
-			<< " 8 - сортировка\n" 
-			<< " 0 - выход\n\n";
+			<< " 1 - РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚\n"
+			<< " 2 - Р·Р°РїРѕР»РЅРёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РёР· С„Р°Р№Р»Р°\n"
+			<< " 3 - РЅР°РїРµС‡Р°С‚Р°С‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ РєРѕРЅС‚РµР№РЅРµСЂР°\n"
+			<< " 4 - СЃРѕС…СЂР°РЅРёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ РІ С„Р°Р№Р»\n"
+			<< " 5 - РЅР°РїРµС‡Р°С‚Р°С‚СЊ СЌР»РµРјРµРЅС‚С‹ РїРѕ РєСЂРёС‚РµСЂРёСЋ\n"
+			<< " 6 - РІС‹РІРµСЃС‚Рё СЌР»РµРјРµРЅС‚С‹ РїРѕ РєСЂРёС‚РµСЂРёСЋ РІ С„Р°Р№Р»\n"
+			<< " 7 - СѓРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚С‹ РїРѕ РєСЂРёС‚РµСЂРёСЋ\n"
+				/* РїРѕРґСЂР°Р·СѓРјРµРІР°РµС‚СЃСЏ СЃРѕСЂС‚РёСЂРѕРІРєР° РІ РїСЂРёРѕСЂРёС‚РµС‚Рµ */
+				/* РЅРѕРјРµСЂ СЃРєР»Р°РґР° -> РЅРѕРјРµСЂ С‚РѕРІР°СЂР° */
+			<< " 8 - СЃРѕСЂС‚РёСЂРѕРІРєР°\n" 
+			<< " 0 - РІС‹С…РѕРґ\n\n";
 
 		cout << "> ";
 
@@ -91,33 +91,33 @@ void menu()
 			data.add(el);
 			break;
 		case '2':
-			cout << "Введите имя файла: ";
+			cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°: ";
 			cin.getline(fname, 256);
 			data.fill(fname);
 			break;
 		case '3':
 			if (data.count() == 0)
-				cout << "\nКонтейнер пуст\n";
+				cout << "\nРљРѕРЅС‚РµР№РЅРµСЂ РїСѓСЃС‚\n";
 			else
 			{
-				cout << "\nСодержимое контейнера:\n\n";
+				cout << "\nРЎРѕРґРµСЂР¶РёРјРѕРµ РєРѕРЅС‚РµР№РЅРµСЂР°:\n\n";
 				data.print();
 			}
 			break;
 		case '4':
-			cout << "Введите имя файла: ";
+			cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°: ";
 			cin.getline(fname, 256);
 			data.print(fname);
 			break;
 		case '5':
 			subdata = action_by_choice<Products>(data, &Products::select);
 			if (subdata.count() == 0)
-				cout << "По хпдпнному критерию ничего не найдено";
+				cout << "РџРѕ С…РїРґРїРЅРЅРѕРјСѓ РєСЂРёС‚РµСЂРёСЋ РЅРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ";
 			else
 				subdata.print();
 			break;
 		case '6':
-			cout << "Введите имя файла: ";
+			cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°: ";
 			cin.getline(fname, 256);
 			subdata = action_by_choice<Products>(data, &Products::select);
 			subdata.print(fname);

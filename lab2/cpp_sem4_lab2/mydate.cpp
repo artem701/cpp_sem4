@@ -1,4 +1,4 @@
-#include "mydate.h"
+﻿#include "mydate.h"
 
 #include <time.h>
 
@@ -71,9 +71,6 @@ istream & operator>>(istream & is, Date & date)
 	char delim;
 
 	is >> date.d >> delim >> date.m >> delim >> date.y;
-	/*
-	if (is)
-		is >> date.h >> delim >> date.min;*/
 
 	return is;
 }
@@ -83,10 +80,7 @@ ostream & operator<<(ostream & os, const Date & date)
 {
 	OUT(date.d) << ".";
 
-	OUT(date.m) << "." << date.y << " ";
-	/*
-	OUT(date.h) << ":";
-	OUT(date.min);*/
+	OUT(date.m) << "." << date.y;
 
 	return os;
 }
