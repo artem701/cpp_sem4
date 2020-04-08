@@ -5,6 +5,13 @@
 #include "product.h"
 #include "data.h"
 
+/* Дубровских А. Р.
+ * 2 курс, 9 группа
+ *
+ * Задача №2
+ */
+
+
 
 typedef Data<Product>::Predicate Predicate;
 typedef Data<Product> Products;
