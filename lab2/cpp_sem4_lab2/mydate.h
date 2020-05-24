@@ -10,9 +10,8 @@ struct Date
 {
 public:
 	int d, m, y;
-	int h, min;
 
-	Date(int _d = 1, int _m = 1, int _y = 2020/*, int _h = 0, int _min = 0*/);
+	Date(int _d = 1, int _m = 1, int _y = 2020);
 
 	int monthdays() const;
 

@@ -67,7 +67,6 @@ Date Date::get_today()
 
 istream & operator>>(istream & is, Date & date)
 {
-	date.h = date.min = 0;
 	char delim;
 
 	is >> date.d >> delim >> date.m >> delim >> date.y;

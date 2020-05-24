@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <list>
+#include <vector>
 #include <iostream>
 #include <fstream> 
 #include <sstream>
@@ -12,17 +12,18 @@ using namespace std;
 template <typename T> class Data
 {
 private:
-	/* list, т.к. в приоритете добавление и удаление элементов, а список реализует их очень быстро */
-	list<T> l;
+	/* vector, т.к. в приоритете добавление и удаление элементов, а вектор реализует их достаточно быстро, 
+	 * к тому же бинарный поиск не имеет смысла без случайного доступа */
+	vector<T> v;
 	bool sorted = false;
 	
 	void fill(istream& is)
 	{
 		istream_iterator<T> begin(is);
 		istream_iterator<T> end;
-		l.clear();
+		v.clear();
 		while (begin != end)
-			l.push_back(*begin++);
+			v.push_back(*begin++);
 		sorted = false;
 	}
 
@@ -30,7 +31,7 @@ private:
 	{
 		ostream_iterator<T> oit(os);
 
-		for (T t : l)
+		for (T t : v)
 			*oit++ = t;
 	}
 
@@ -40,25 +41,25 @@ public:
 
 	int count() const
 	{
-		return l.size();
+		return v.size();
 	}
 
 	void sort(function<bool(const T& a, const T& b)> lt)
 	{
-		l.sort(lt);
+		std::sort(v.begin(), v.end(), lt);
 		sorted = true;
 	}
 
 	bool find(Predicate p) const
 	{
-		for (auto i : l)
+		for (auto i : v)
 			if (p(i))
 				return true;
 		return false;
 	}
 
 	/* Если dir < 0 искомый элемент левее, > 0 - правее, иначе равен */
-	int indexof_binary(function<int(const T& item)> dir)  // int(*dir)(const T& item))
+	int indexof_binary(function<int(const T& item)> dir) 
 	{
 		if (!sorted)
 		{
@@ -66,17 +67,10 @@ public:
 			return -2;
 		}
 
-		int min = 0, max = l.size() - 1;
+		int min = 0, max = v.size() - 1;
 		do {
 			int i = (min + max) / 2;
-			auto it = l.begin();
-			int k = 0;
-			while (k < i)
-			{
-				it++;
-				k++;
-			}
-			int d = dir(*it);
+			int d = dir(*v[i]);
 			if (d == 0)
 				return i;
 			if (d < 0)
@@ -92,7 +86,7 @@ public:
 	{
 		Data<T> subdata;
 
-		for (auto i : l)
+		for (auto i : v)
 			if (p(i))
 				subdata.add(i);
 		return subdata;
@@ -100,18 +94,28 @@ public:
 
 	void add(const T& val)
 	{
-		l.push_back(val);
+		v.push_back(val);
 		sorted = false;
 	}
 
 	void remove(const T& val)
 	{
-		l.remove(val);
+		v.remove(val);
 	}
 
 	void remove_if(Predicate p)
 	{
-		l.remove_if(p);
+		auto end = v.begin();
+		for (auto i = v.begin(); i < v.end(); ++i)
+		{
+			if (!p(*i))
+			{
+				if (end != i)
+					*end = *i;
+				++end;
+			}
+		}
+		v.erase(end, v.end());
 	}
 
 	void fill(const char* filename)
@@ -127,7 +131,7 @@ public:
 
 	void print() const
 	{
-		for (auto i : l)
+		for (auto i : v)
 			cout << i;
 	}
 
