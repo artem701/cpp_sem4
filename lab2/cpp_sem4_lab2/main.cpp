@@ -119,7 +119,7 @@ void menu()
 		case '5':
 			subdata = action_by_choice<Products>(data, &Products::select);
 			if (subdata.count() == 0)
-				cout << "По хпдпнному критерию ничего не найдено";
+				cout << "По данному критерию ничего не найдено";
 			else
 				subdata.print();
 			break;

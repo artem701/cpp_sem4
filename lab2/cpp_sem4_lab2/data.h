@@ -70,14 +70,17 @@ public:
 		int min = 0, max = v.size() - 1;
 		do {
 			int i = (min + max) / 2;
-			int d = dir(*v[i]);
+			int d = dir(v[i]);
 			if (d == 0)
 				return i;
 			if (d < 0)
 				max = i;
 			else
-				min = i;
+				min = i + 1;
 		} while (min < max);
+
+		if (dir(v[min]) == 0)
+			return min;
 
 		return -1;
 	}
