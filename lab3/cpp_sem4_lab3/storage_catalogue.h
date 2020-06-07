@@ -12,9 +12,9 @@ using namespace std;
 
 struct StorageCatalogue
 {
-	// Доступные склады
+	// Р”РѕСЃС‚СѓРїРЅС‹Рµ СЃРєР»Р°РґС‹
 	Data<Storage> storages;
-	// Совокупность товаров
+	// РЎРѕРІРѕРєСѓРїРЅРѕСЃС‚СЊ С‚РѕРІР°СЂРѕРІ
 	Data<Product> products;
 
 	void toDisk(string path) const;

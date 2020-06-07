@@ -4,10 +4,10 @@
 
 void Storage::console_input()
 {
-	cout << "¬‚Â‰ËÚÂ id ÒÍÎ‡‰‡: ";
+	cout << "–í–≤–µ–¥–∏—Ç–µ id —Å–∫–ª–∞–¥–∞: ";
 	input(id);
 	
-	cout << "¬‚Â‰ËÚÂ ÍÓÏÏÂÌÚ‡ËÈ Í ÒÍÎ‡‰Û: ";
+	cout << "–í–≤–µ–¥–∏—Ç–µ –∫–æ–º–º–µ–Ω—Ç–∞—Ä–∏–π –∫ —Å–∫–ª–∞–¥—É: ";
 	static char comment_str[256];
 	cin.getline(comment_str, 256);
 	comment = string(comment_str);
@@ -15,7 +15,7 @@ void Storage::console_input()
 
 void Storage::console_output() const
 {
-	cout << "—ÍÎ‡‰ π" << id << " (" << comment << ")\n\n";
+	cout << "–°–∫–ª–∞–¥ ‚Ññ" << id << " (" << comment << ")\n\n";
 }
 
 istream & operator>>(istream & is, Storage & p)
@@ -27,8 +27,8 @@ istream & operator>>(istream & is, Storage & p)
 	}
 	is >> p.id; 
 	static char comment_str[256];
-	is.getline(comment_str, 256); // finish current line
-	is.getline(comment_str, 256); // read comment
+	is.getline(comment_str, 256); // –ó–∞–∫–æ–Ω—á–∏—Ç—å —Å—Ç—Ä–æ–∫—É
+	is.getline(comment_str, 256); // –°—á–∏—Ç–∞—Ç—å –∫–æ–º–º–µ–Ω—Ç–∞—Ä–∏–π
 	p.comment = string(comment_str);
 	return is;
 }

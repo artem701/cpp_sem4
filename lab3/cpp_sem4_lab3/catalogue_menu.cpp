@@ -7,13 +7,13 @@ void catalogue_menu(StorageCatalogue& catalogue)
 	while (true)
 	{
 		cout
-			<< " 1 - вывести список складов\n"
-			<< " 2 - добавить пустой склад\n"
-			<< " 3 - удалить склад\n"
-			<< " 4 - перейти к складу\n"
-			<< " 5 - сохранить каталог\n"
+			<< " 1 - РІС‹РІРµСЃС‚Рё СЃРїРёСЃРѕРє СЃРєР»Р°РґРѕРІ\n"
+			<< " 2 - РґРѕР±Р°РІРёС‚СЊ РїСѓСЃС‚РѕР№ СЃРєР»Р°Рґ\n"
+			<< " 3 - СѓРґР°Р»РёС‚СЊ СЃРєР»Р°Рґ\n"
+			<< " 4 - РїРµСЂРµР№С‚Рё Рє СЃРєР»Р°РґСѓ\n"
+			<< " 5 - СЃРѕС…СЂР°РЅРёС‚СЊ РєР°С‚Р°Р»РѕРі\n"
 			<< "\n"
-			<< " 0 - назад\n"
+			<< " 0 - РЅР°Р·Р°Рґ\n"
 			<< "\n"
 			<< "\n"
 			<< "> ";
@@ -26,22 +26,22 @@ void catalogue_menu(StorageCatalogue& catalogue)
 		case '2':
 		{
 			int id;
-			cout << "Введите id склада (0 чтобы выйти): ";
+			cout << "Р’РІРµРґРёС‚Рµ id СЃРєР»Р°РґР° (0 С‡С‚РѕР±С‹ РІС‹Р№С‚Рё): ";
 			input(id);
 			if (id > 0)
 			{
-				// Проверка уникальности id
-				// При записи каталога на диск номера складов упорядочиваются
+				// РџСЂРѕРІРµСЂРєР° СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚Рё id
+				// РџСЂРё Р·Р°РїРёСЃРё РєР°С‚Р°Р»РѕРіР° РЅР° РґРёСЃРє РЅРѕРјРµСЂР° СЃРєР»Р°РґРѕРІ СѓРїРѕСЂСЏРґРѕС‡РёРІР°СЋС‚СЃСЏ
 				while (-1 != catalogue.storages.indexof_binary(
 					[id](auto s)
 				{
 					return id - s.id;
 				}))
 				{
-					cout << "Склад с таким id уже существует. Повторите ввод: ";
+					cout << "РЎРєР»Р°Рґ СЃ С‚Р°РєРёРј id СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚. РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ: ";
 					input(id);
 				}
-				cout << "Введите комментарий: ";
+				cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРјРµРЅС‚Р°СЂРёР№: ";
 				static char comment_str[256];
 				cin.getline(comment_str, 256);
 				string comment(comment_str);
@@ -53,7 +53,7 @@ void catalogue_menu(StorageCatalogue& catalogue)
 		case '3':
 		{
 			int id;
-			cout << "Введите id удаляемого склада (0 чтобы выйти): ";
+			cout << "Р’РІРµРґРёС‚Рµ id СѓРґР°Р»СЏРµРјРѕРіРѕ СЃРєР»Р°РґР° (0 С‡С‚РѕР±С‹ РІС‹Р№С‚Рё): ";
 			input(id);
 			if (id > 0)
 			{
@@ -75,7 +75,7 @@ void catalogue_menu(StorageCatalogue& catalogue)
 		case '4':
 		{
 			int id;
-			cout << "Введите id склада (0 чтобы выйти): ";
+			cout << "Р’РІРµРґРёС‚Рµ id СЃРєР»Р°РґР° (0 С‡С‚РѕР±С‹ РІС‹Р№С‚Рё): ";
 			input(id);
 			if (id > 0)
 			{
@@ -85,7 +85,7 @@ void catalogue_menu(StorageCatalogue& catalogue)
 					return id - s.id;
 				}))
 				{
-					cout << "Выбранного склада не существует\n";
+					cout << "Р’С‹Р±СЂР°РЅРЅРѕРіРѕ СЃРєР»Р°РґР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚\n";
 				}
 				else {
 					storage_menu(catalogue, id);
@@ -98,7 +98,7 @@ void catalogue_menu(StorageCatalogue& catalogue)
 			string fname = get_fname();
 			if (fname == "tmp")
 			{
-				cout << "Недопустимое имя\n";
+				cout << "РќРµРґРѕРїСѓСЃС‚РёРјРѕРµ РёРјСЏ\n";
 			}
 			else 
 			{
@@ -109,7 +109,7 @@ void catalogue_menu(StorageCatalogue& catalogue)
 		case '0':
 			return;
 		default:
-			cout << "Неизвестная команда\n";
+			cout << "РќРµРёР·РІРµСЃС‚РЅР°СЏ РєРѕРјР°РЅРґР°\n";
 		}
 	}
 }

@@ -9,7 +9,7 @@
 
 using namespace std;
 
-// Возврашает выбранную пользователем команду
+// Р’РѕР·РІСЂР°С€Р°РµС‚ РІС‹Р±СЂР°РЅРЅСѓСЋ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј РєРѕРјР°РЅРґСѓ
 char get_cmd()
 {
 	static char line[256];
@@ -21,7 +21,7 @@ char get_cmd()
 string get_fname()
 {
 	string fname;
-	cout << "Введите имя: ";
+	cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ: ";
 	input(fname);
 	return fname;
 }
@@ -58,21 +58,21 @@ bool check_yn()
 		case '1':
 		case 'y':
 		case 'Y':
-		case 'д':
-		case 'Д':
+		case 'Рґ':
+		case 'Р”':
 			choice = true;
 			not_ok = false;
 			break;
 		case '0':
 		case 'n':
 		case 'N':
-		case 'н':
-		case 'Н':
+		case 'РЅ':
+		case 'Рќ':
 			choice = false;
 			not_ok = false;
 			break;
 		default:
-			cout << "Ошибка, повторите ввод: ";
+			cout << "РћС€РёР±РєР°, РїРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ: ";
 			break;
 		}
 	} while (not_ok);

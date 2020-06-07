@@ -6,7 +6,7 @@ void start_menu()
 {
 	if (file_exists("tmp_storages.txt") && file_exists("tmp_products.txt"))
 	{
-		cout << "Âîññòàíîâèòü ïðåäûäóùóþ ñåññèþ? (y/n)\n";
+		cout << "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¿Ñ€ÐµÐ´Ñ‹Ð´ÑƒÑ‰ÑƒÑŽ ÑÐµÑÑÐ¸ÑŽ? (y/n)\n";
 
 		if (check_yn())
 		{
@@ -19,10 +19,10 @@ void start_menu()
 	while (true)
 	{
 		cout
-			<< " 1 - ñîçäàòü êàòàëîã ñêëàäîâ\n"
-			<< " 2 - îòêðûòü ñóùåñòâóþùèé êàòàëîã ôàéëîâ\n"
+			<< " 1 - ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ ÑÐºÐ»Ð°Ð´Ð¾Ð²\n"
+			<< " 2 - Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¹ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ñ„Ð°Ð¹Ð»Ð¾Ð²\n"
 			<< "\n"
-			<< " 0 - âûõîä\n"
+			<< " 0 - Ð²Ñ‹Ñ…Ð¾Ð´\n"
 			<< "\n"
 			<< "\n"
 			<< "> ";
@@ -39,7 +39,7 @@ void start_menu()
 			string fname = get_fname();
 			if (!file_exists(fname + "_storages.txt") || !file_exists(fname + "_products.txt"))
 			{
-				cout << "Êàòàëîã íå íàéäåí\n";
+				cout << "ÐšÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½\n";
 				break;
 			}
 			sc.fromDisk(fname);
@@ -49,7 +49,7 @@ void start_menu()
 		case '0':
 			return;
 		default:
-			cout << "Íåèçâåñòíàÿ êîìàíäà\n";
+			cout << "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð°Ñ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð°\n";
 		}
 	}
 }
