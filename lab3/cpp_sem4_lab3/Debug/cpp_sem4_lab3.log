@@ -1,0 +1,9 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (cpp_sem4_lab2.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  storage_menu.cpp
+c:\users\artem\source\repos\c++ sem4\cpp_sem4\lab3\cpp_sem4_lab3\storage_menu.cpp(56): warning C4018: >=: несоответствие типов со знаком и без знака
+c:\users\artem\source\repos\c++ sem4\cpp_sem4\lab3\cpp_sem4_lab3\storage_menu.cpp(62): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\artem\source\repos\c++ sem4\cpp_sem4\lab3\cpp_sem4_lab3\storage_menu.cpp(68): warning C4018: >=: несоответствие типов со знаком и без знака
+c:\users\artem\source\repos\c++ sem4\cpp_sem4\lab3\cpp_sem4_lab3\storage_menu.cpp(74): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\artem\source\repos\c++ sem4\cpp_sem4\lab3\cpp_sem4_lab3\storage_menu.cpp(80): warning C4018: >=: несоответствие типов со знаком и без знака
+c:\users\artem\source\repos\c++ sem4\cpp_sem4\lab3\cpp_sem4_lab3\storage_menu.cpp(86): warning C4018: <=: несоответствие типов со знаком и без знака
+  cpp_sem4_lab3.vcxproj -> C:\Users\Artem\source\repos\c++ sem4\cpp_sem4\lab3\Debug\cpp_sem4_lab3.exe
